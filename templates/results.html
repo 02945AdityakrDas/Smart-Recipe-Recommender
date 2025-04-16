@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipe Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-white">
+    <div class="container mt-5">
+        <a href="/" class="btn btn-secondary mb-4">⬅ Back</a>
+        <h2 class="mb-4">🍲 Recipe Suggestions</h2>
+
+        {% if bengali %}
+        <h4>Bengali Style Recipe:</h4>
+        <pre class="bg-light p-3 rounded">{{ recipe }}</pre>
+        {% else %}
+        <h5>🧾 Cleaned Ingredients:</h5>
+        <pre class="bg-light p-3 rounded">{{ cleaned }}</pre>
+        {% for r in recipes %}
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ r.title }}</h5>
+                <h6>Steps:</h6>
+                <ol>
+                    {% for step in r.steps %}
+                    <li>{{ step }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+
+</html>
