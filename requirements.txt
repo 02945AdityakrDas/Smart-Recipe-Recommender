@@ -1,6 +1,6 @@
-crewai
 openai
 python-dotenv
 requests
 google-generativeai
 flask
+gunicorn
