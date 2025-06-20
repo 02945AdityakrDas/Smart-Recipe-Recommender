@@ -2,7 +2,5 @@ crewai
 openai
 python-dotenv
 requests
-langchain
-langchain_community
 google-generativeai
 flask

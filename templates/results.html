@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Recipe Results</title>
+    <title>Recipe Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
@@ -10,28 +10,26 @@
 <body class="bg-white">
     <div class="container mt-5">
         <a href="/" class="btn btn-secondary mb-4">⬅ Back</a>
-        <h2 class="mb-4">🍲 Recipe Suggestions</h2>
+        <h2 class="mb-4">🍲 Recipe Suggestion</h2>
+
+        <div class="mb-3">
+            <strong>Ingredients Provided:</strong>
+            <p>{{ ingredients }}</p>
+            <strong>Cuisine Selected:</strong>
+            <p>{{ cuisine }}</p>
+        </div>
 
         {% if bengali %}
-        <h4>Bengali Style Recipe:</h4>
-        <pre class="bg-light p-3 rounded">{{ recipe }}</pre>
+        <h4 class="mb-3">Bengali Recipe (in Bengali):</h4>
         {% else %}
-        <h5>🧾 Cleaned Ingredients:</h5>
-        <pre class="bg-light p-3 rounded">{{ cleaned }}</pre>
-        {% for r in recipes %}
-        <div class="card mb-3 shadow-sm">
+        <h4 class="mb-3">Here’s your {{ cuisine }}-style recipe:</h4>
+        {% endif %}
+
+        <div class="card shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">{{ r.title }}</h5>
-                <h6>Steps:</h6>
-                <ol>
-                    {% for step in r.steps %}
-                    <li>{{ step }}</li>
-                    {% endfor %}
-                </ol>
+                <pre>{{ recipe }}</pre>
             </div>
         </div>
-        {% endfor %}
-        {% endif %}
     </div>
 </body>
 

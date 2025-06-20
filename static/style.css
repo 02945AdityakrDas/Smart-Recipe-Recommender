@@ -18,7 +18,7 @@ body {
 }
 
 /* Header */
-h1,
+
 h2 {
     text-align: center;
     color: #222;
@@ -56,6 +56,19 @@ form button {
     cursor: pointer;
     transition: 0.3s ease;
 }
+form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-top: 10px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.03);
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
 
 form button:hover {
     background: #e85c00;
@@ -86,7 +99,7 @@ form button:hover {
 
 /* Bengali recipe box */
 pre {
-    background: #f8f9fa;
+    background: #77abdf;
     padding: 20px;
     border-radius: 10px;
     white-space: pre-wrap;
@@ -117,5 +130,73 @@ pre {
 
     .container {
         margin: 20px;
+    }
+}
+/* Background Gradient and Floating Icons */
+body {
+    background: linear-gradient(135deg, #ffeaea, #fffde1);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Container tweak (optional, since Bootstrap already handles it) */
+.container {
+    z-index: 1;
+    position: relative;
+}
+
+/* Floating Background Decorations */
+.background-decor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.decor-item {
+    position: absolute;
+    opacity: 0.08;
+    animation: float 20s infinite ease-in-out;
+    filter: blur(0.5px);
+}
+
+.decor-item img {
+    width: 50px;
+    height: 50px;
+    animation: rotate 30s linear infinite;
+}
+
+.decor-text {
+    position: absolute;
+    font-size: 60px;
+    font-weight: bold;
+    opacity: 0.03;
+    color: #000;
+    transform: rotate(-10deg);
+    animation: float 12s infinite ease-in-out;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
